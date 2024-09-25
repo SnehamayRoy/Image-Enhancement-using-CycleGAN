@@ -1,7 +1,7 @@
 # Image-Enhancement-using-CycleGAN
 
 This project uses a CycleGAN (Cycle-Consistent Generative Adversarial Network) to enhance images. CycleGAN is capable of learning image-to-image translation without paired data, which makes it ideal for tasks like image enhancement, style transfer, and domain adaptation.
-A clean, simple and readable implementation of CycleGAN in PyTorch. I've tried to replicate the original paper as closely as possible.
+It is a clean, simple and readable implementation of CycleGAN in PyTorch. I've tried to replicate the original paper as closely as possible.
 ## Table of Contents
 
 - [Introduction](#introduction)
