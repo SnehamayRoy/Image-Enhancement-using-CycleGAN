@@ -24,8 +24,8 @@ def test_fn(
             fake_expertc = gen_Z(original)
 
         
-        save_image(fake_original* 0.5 + 0.5, f"test_results/original_{idx}.png")
-        save_image(fake_expertc * 0.5 + 0.5, f"test_results/expertc_{idx}.png")
+        save_image(fake_original* 0.5 + 0.5, f"test_results/expertc_to_original/original_{idx}.png")
+        save_image(fake_expertc * 0.5 + 0.5, f"test_results/original_to_expertc/expertc_{idx}.png")
 
 
 def main():
