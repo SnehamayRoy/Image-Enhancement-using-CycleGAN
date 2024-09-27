@@ -9,6 +9,7 @@ It is a clean, simple and readable implementation of CycleGAN in PyTorch. I've t
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Training](#training)
+- [Testing](#testing)
 - [Results](#results)
 ## Introduction
 
@@ -66,9 +67,19 @@ Follow these steps to set up the project on colab: [![Open in Colab](https://col
   python train.py
   ```
 - Make sure 'save.checkpoint=True' in config.py, so that you can use that trained model later.
+- You can use the notebook provided here in repository for training 'CycleGAN_for_Training'.
+## Testing
+- Place your test data respectively 'data\test\expertc' and 'data\test\original' folders .
+- PLace your trained model into the main folder or you can download my Pretrained model from https://drive.google.com/drive/folders/1pTyeIEOIgyGiJtLXw9tewy2RIMPuqwZ3?usp=sharing
+- Then Run test.py
+  ```bash
+  python test.py
+  ```
+- You can use the notebook provided here in repository for training 'CycleGAN_for_Testing'.
   
 ## Results
-- Generated images will be saved in 'saved_images/'directory.
+- Some Generated images will be saved in 'saved_images/'directory during training.
+- Test result will be saved in 'test_results'  directory.
 
 
 
