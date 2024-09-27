@@ -1,7 +1,6 @@
 import random, torch, os, numpy as np
 import torch.nn as nn
 import config
-import copy
 
 def save_checkpoint(model, optimizer, filename="my_checkpoint.pth.tar"):
     print("=> Saving checkpoint")
@@ -22,6 +21,12 @@ def load_checkpoint(checkpoint_file, model, optimizer, lr):
     # and it will lead to many hours of debugging \:
     for param_group in optimizer.param_groups:
         param_group["lr"] = lr
+      
+def load_checkpoint_for_testing(checkpoint_file, model):
+    print("=> Loading checkpoint for testing")
+    checkpoint = torch.load(checkpoint_file, map_location=config.DEVICE,weights_only=True)
+    model.load_state_dict(checkpoint["state_dict"],strict=False)
+    print("=> Model weights loaded successfully for testing.")
 
 
 def seed_everything(seed=42):
