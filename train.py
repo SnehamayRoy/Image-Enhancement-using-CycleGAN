@@ -11,10 +11,13 @@ from tqdm import tqdm
 from torchvision.utils import save_image
 from discriminator_model import Discriminator
 from generator_model import Generator
+from torch.utils.tensorboard import SummaryWriter
+
+writer = SummaryWriter(log_dir='runs/cycleGan')
 
 
 def train_fn(
-    disc_H, disc_Z, gen_Z, gen_H, loader, opt_disc, opt_gen, l1, mse, d_scaler, g_scaler
+    disc_H, disc_Z, gen_Z, gen_H, loader, opt_disc, opt_gen, l1, mse, d_scaler, g_scaler,epoch
 ):
     H_reals = 0
     H_fakes = 0
@@ -90,7 +93,14 @@ def train_fn(
             save_image(fake_expertc * 0.5 + 0.5, f"saved_images/expertc_{idx}.png")
 
         loop.set_postfix(H_real=H_reals / (idx + 1), H_fake=H_fakes / (idx + 1))
-
+        
+    writer.add_scalar('Generator H loss', loss_G_H, epoch+1)
+    writer.add_scalar('Generator z loss', loss_G_Z, epoch+1)
+    writer.add_scalar('cycle_expertc_loss', cycle_expertc_loss, epoch+1) 
+    writer.add_scalar('cycle_original_loss', cycle_original_loss, epoch+1)
+    writer.add_scalar('identity_expertc_loss', identity_expertc_loss, epoch+1) 
+    writer.add_scalar('identity_original_loss', identity_original_loss, epoch+1)
+    writer.add_scalar('Total loss', G_loss, epoch+1)
 
 def main():
     disc_H = Discriminator(in_channels=3).to(config.DEVICE)
@@ -177,6 +187,7 @@ def main():
             mse,
             d_scaler,
             g_scaler,
+            epoch,
         )
 
         if config.SAVE_MODEL:
@@ -184,7 +195,7 @@ def main():
             save_checkpoint(gen_Z, opt_gen, filename=config.CHECKPOINT_GEN_Z)
             save_checkpoint(disc_H, opt_disc, filename=config.CHECKPOINT_CRITIC_H)
             save_checkpoint(disc_Z, opt_disc, filename=config.CHECKPOINT_CRITIC_Z)
-
+    writer.close()
 
 if __name__ == "__main__":
     main()
