@@ -36,7 +36,7 @@ You can either prepare your dataset or download one from these source
 
 # Prerequisites
 
-To get started with this project, you'll need to have the following software and libraries installed:
+To get started with this project, you'll need to have the following libraries installed:
 - torch
 - torchvision
 - torchaudio
@@ -70,7 +70,7 @@ Follow these steps to set up the project on colab: [![Open in Colab](https://col
 - You can use the notebook provided here in repository for training 'CycleGAN_for_Training'.
 ## Testing
 - Place your test data respectively 'data\test\expertc' and 'data\test\original' folders .
-- PLace your trained model into the main folder or you can download my Pretrained model from https://drive.google.com/drive/folders/1pTyeIEOIgyGiJtLXw9tewy2RIMPuqwZ3?usp=sharing
+- Place your trained model into the main folder or you can download my Pretrained model from https://drive.google.com/drive/folders/1z9_PA6VqBZGqMY1cwiS1kBGzdUH8HhxO?usp=sharing (Trained for 120 epochs)
 - Then Run test.py
   ```bash
   python test.py
