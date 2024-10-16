@@ -70,7 +70,7 @@ Follow these steps to set up the project on colab: [![Open in Colab](https://col
 - You can use the notebook provided here in repository for training 'CycleGAN_for_Training'.
 ## Testing
 - Place your test data respectively 'data\test\expertc' and 'data\test\original' folders .
-- Place your trained model into the main folder or you can download my Pretrained model from https://drive.google.com/drive/folders/1z9_PA6VqBZGqMY1cwiS1kBGzdUH8HhxO?usp=sharing (Trained for 120 epochs)
+- Place your trained model into the main folder or you can download my Pretrained model from https://drive.google.com/drive/folders/1z9_PA6VqBZGqMY1cwiS1kBGzdUH8HhxO?usp=sharing (Trained for 120 epochs,Res block=15)
 - Then Run test.py
   ```bash
   python test.py
